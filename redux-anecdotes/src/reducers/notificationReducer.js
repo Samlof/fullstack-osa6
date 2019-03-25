@@ -1,4 +1,4 @@
-const initialState = 'testi viesti'
+const initialState = ''
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {

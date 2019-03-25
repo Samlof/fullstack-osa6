@@ -4,7 +4,7 @@ import { change, remove } from '../reducers/notificationReducer'
 
 const AnecdoteList = (props) => {
 
-  const anecdotes = props.store.getState().anecdotes
+  const { anecdotes, filter } = props.store.getState()
 
   const vote = (id, anec) => {
     props.store.dispatch(voteFor(id))
@@ -16,6 +16,7 @@ const AnecdoteList = (props) => {
   }
 
   const anecsToShow = [...anecdotes].sort((a, b) => b.votes - a.votes)
+    .filter(a => a.content.includes(filter))
   return (
     <div>
       {
