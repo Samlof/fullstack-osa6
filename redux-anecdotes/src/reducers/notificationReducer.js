@@ -13,16 +13,18 @@ const reducer = (state = initialState, action) => {
   }
 }
 
-export const change = message => {
-  return {
-    type: 'CHANGE_NOTIFICATION',
-    notification: message
-  }
-}
 
-export const remove = anecdote => {
-  return {
-    type: 'REMOVE_NOTIFICATION'
+export const setNotification = (message, seconds) => {
+  return async dispatch => {
+    dispatch({
+      type: 'CHANGE_NOTIFICATION',
+      notification: message
+    })
+    setTimeout(() => {
+      dispatch({
+        type: 'REMOVE_NOTIFICATION'
+      })
+    }, seconds * 1000)
   }
 }
 
