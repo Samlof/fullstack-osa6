@@ -5,7 +5,7 @@ import { change } from '../reducers/filterReducer'
 const Filter = (props) => {
   const handleChange = (event) => {
     const filter = event.target.value
-    props.store.dispatch(change(filter))
+    props.change(filter)
   }
   const style = {
     marginBottom: 10
@@ -18,4 +18,4 @@ const Filter = (props) => {
   )
 }
 
-export default connect(null)(Filter)
+export default connect(null, { change })(Filter)
